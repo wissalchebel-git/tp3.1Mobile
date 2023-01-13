@@ -30,7 +30,7 @@ import android.view.View;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private CustomReceiver mReceiver = new CustomReceiver();
+    private final CustomReceiver mReceiver = new CustomReceiver();
 
     // String constant that defines the custom broadcast Action.
     private static final String ACTION_CUSTOM_BROADCAST =

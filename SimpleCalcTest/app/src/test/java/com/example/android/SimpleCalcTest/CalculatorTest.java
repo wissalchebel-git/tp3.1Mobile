@@ -16,8 +16,6 @@
 
 package com.example.android.SimpleCalcTest;
 
-import android.test.suitebuilder.annotation.SmallTest;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +30,6 @@ import static org.junit.Assert.assertThat;
  * These are local unit tests; no device needed.
  */
 @RunWith(JUnit4.class)
-@SmallTest
 public class CalculatorTest {
 
     private Calculator mCalculator;

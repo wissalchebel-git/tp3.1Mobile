@@ -43,13 +43,13 @@ import static org.junit.Assert.assertEquals;
 @RunWith(AndroidJUnit4.class)
 public class SpinnerSelectionTest {
     @Rule
-    public ActivityTestRule mActivityRule = new ActivityTestRule<>(
+    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
             MainActivity.class);
 
     @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         assertEquals("com.example.android.phonenumberspinner",
                 appContext.getPackageName());
@@ -65,15 +65,15 @@ public class SpinnerSelectionTest {
                 .getStringArray(R.array.labels_array);
         // Iterate through the spinner array of items.
         int size = myArray.length;
-        for (int i=0; i<size; i++) {
+        for (String s : myArray) {
             // Find the spinner and click on it.
             onView(withId(R.id.label_spinner)).perform(click());
             // Find the spinner item and click on it.
-            onData(is(myArray[i])).perform(click());
+            onData(is(s)).perform(click());
             // Find the text view and check that the spinner item
             // is part of the string.
             onView(withId(R.id.text_phonelabel))
-                    .check(matches(withText(containsString(myArray[i]))));
+                    .check(matches(withText(containsString(s))));
         }
     }
 }

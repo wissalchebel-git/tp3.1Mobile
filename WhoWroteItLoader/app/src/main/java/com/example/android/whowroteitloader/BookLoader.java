@@ -22,7 +22,7 @@ import androidx.loader.content.AsyncTaskLoader;
 
 public class BookLoader extends AsyncTaskLoader<String> {
 
-    private String mQueryString;
+    private final String mQueryString;
 
     BookLoader(Context context, String queryString) {
         super(context);
